@@ -1,8 +1,13 @@
 import {ButtonProps} from "./Button.props.ts";
 import cn from "classnames"
-const Button = ({className,children,...props}:ButtonProps) => {
+import styles from './Button.module.css'
+
+const Button = ({appearance = 'small', className, children, ...props}: ButtonProps) => {
     return (
-        <button className={cn( className)} {...props}>
+        <button className={cn(styles['button'], styles['accent'], className, {
+            [styles['small']]: appearance === 'small',
+            [styles['big']]: appearance === 'big'
+        })} {...props}>
             {children}
         </button>
     );
