@@ -1,6 +1,7 @@
 .layout{
     display: flex;
     min-height: 100vh;
+
 }
 
 .sidebar{
@@ -21,6 +22,12 @@
     gap:14px;
     text-decoration: none;
     color: var(--text-color);
+}
+.link:hover{
+    color:var(--primery-color)
+}
+.active{
+    color:var(--primery-color)
 }
 .avatar{
     margin-bottom: 20px;
@@ -50,4 +57,7 @@
     justify-content: center;
     gap: 9px;
 }
-.content{}
+.content{
+    flex: 1;
+    padding: 40px  65px;
+}
