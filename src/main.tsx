@@ -6,7 +6,8 @@ import {createBrowserRouter, RouterProvider} from "react-router-dom";
 import Layout from "./layout/Layout.tsx";
 import Menu from "./pages/Menu/Menu.tsx";
 import Cart from "./pages/Cart/Cart.tsx";
-import NoPage from "./pages/noPage/NoPage.tsx";
+import NoPage from "./pages/NoPage/NoPage.tsx";
+import Product from "./pages/Product/Product.tsx";
 
 const router = createBrowserRouter([
     {
@@ -18,8 +19,12 @@ const router = createBrowserRouter([
                 element: <Menu/>
             },
             {
-                path: '/Cart',
+                path: '/cart',
                 element: <Cart/>
+            },
+            {
+                path: '/product/:id',
+                element: <Product/>
             },
             {
                 path: '*',
@@ -32,6 +37,6 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')!).render(
     <StrictMode>
-        <RouterProvider router ={router}/>
+        <RouterProvider router={router}/>
     </StrictMode>,
 )
