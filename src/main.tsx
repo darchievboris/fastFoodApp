@@ -13,12 +13,13 @@ import Product from "./pages/Product/Product.tsx";
 import AuthLayout from "./layout/auth/AuthLayout.tsx";
 import Login from "./pages/Login/Login.tsx";
 import Register from "./pages/Register/Register.tsx";
+import RequireAuth from "./helpers/RequireAuth.tsx";
 
 const Menu = lazy(() => import("./pages/Menu/Menu.tsx"))
 const router = createBrowserRouter([
     {
         path: '/',
-        element: <Layout/>,
+        element: <RequireAuth><Layout/></RequireAuth>,
         children: [
             {
                 path: '/',

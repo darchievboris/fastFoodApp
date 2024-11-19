@@ -1,8 +1,14 @@
-import {NavLink, Outlet} from "react-router-dom";
+import {NavLink, Outlet, useNavigate} from "react-router-dom";
 import styles from './Layout.module.css'
 import Button from "../components/UI/Button/Button.tsx";
 import cn from 'classnames'
 const Layout = ({}) => {
+    const navigate = useNavigate()
+    function handleExit() {
+        localStorage.removeItem("jwt")
+        navigate("/auth/login")
+    }
+
     return (
         <div className={styles.layout}>
             <div className={styles.sidebar}>
@@ -22,9 +28,9 @@ const Layout = ({}) => {
                     </NavLink>
                 </div>
 
-                <Button className={styles.exit}>
+                <Button className={styles.exit} onClick={handleExit}>
                     <img src="exit.svg" alt="Иконка выхода"/>
-                    Cart
+                    Выйти
                 </Button>
 
             </div>
