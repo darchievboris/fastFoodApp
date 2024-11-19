@@ -1,0 +1,33 @@
+.login{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+.form{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.filed{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 400px;
+}
+
+.filed label{
+    color: #C4C4C4;
+    font-size: 17px;
+
+}
+.register{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+.register a{
+    color: var(--primery-color);
+}
