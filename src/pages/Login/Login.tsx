@@ -7,44 +7,49 @@ import axios, {AxiosError} from "axios";
 import {PREFIX} from "../../helpers/API.ts";
 import {FormEvent, useState} from "react";
 import {AuthInterface} from "../../interfaces/auth.interface.ts";
+import {useDispatch} from "react-redux";
+import {AppDispatch} from "../../store/store.ts";
+import {userActions} from "../../store/user.slice.ts";
 
 type loginForm = {
-    email:{
-        value:string
+    email: {
+        value: string
     },
-    password:{
-        value:string
+    password: {
+        value: string
     };
 }
 const Login = ({}) => {
-    const [error, setError] = useState<string|null>(null);
-const navigate = useNavigate()
-    async function handleSubmit(e:FormEvent) {
+    const [error, setError] = useState<string | null>(null);
+    const navigate = useNavigate()
+    const dispatch = useDispatch<AppDispatch>()
+
+    async function handleSubmit(e: FormEvent) {
         e.preventDefault()
         setError(null)
         //a@gmail.com 123
         const target = e.target as typeof e.target & loginForm
-        const {email,password} = target
+        const {email, password} = target
         await sendLogin(email.value, password.value)
     }
 
-    async function sendLogin(email:string, password:string ) {
-        try{
+    async function sendLogin(email: string, password: string) {
+        try {
             const {data} = await axios.post<AuthInterface>(`${PREFIX}/auth/login`, {
                 email, password
             })
-            localStorage.setItem("jwt",data.access_token)
+            dispatch(userActions.addJwt(data.access_token))
             navigate("/")
-        }catch (error) {
-            if(error instanceof AxiosError)
-            setError(error.response?.data.message)
+        } catch (error) {
+            if (error instanceof AxiosError)
+                setError(error.response?.data.message)
         }
     }
 
     return (
         <div className={styles.login}>
             <H1>Вход</H1>
-            {error&&<div className={styles.error}>{error}</div>}
+            {error && <div className={styles.error}>{error}</div>}
             <form className={styles.form} onSubmit={handleSubmit}>
                 <div className={styles.filed}>
                     <label htmlFor="email">Ваш email</label>
