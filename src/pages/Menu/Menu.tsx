@@ -10,11 +10,16 @@ const Menu = ({}) => {
     const [products, setProducts] = useState<ProductInterface[]>([]);
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState<string | undefined>("");
-    const getMenu = async () => {
+    const [filter, setFilter] = useState<string>("");
+    const getMenu = async (name: string) => {
         try {
             setIsLoading(true)
-            await new Promise<void>(res=>setTimeout(res,2000))
-            const {data} = await axios.get<ProductInterface[]>(`${PREFIX}/products`)
+            // await new Promise<void>(res => setTimeout(res, 2000))
+            const {data} = await axios.get<ProductInterface[]>(`${PREFIX}/products`, {
+                params: {
+                    name: name
+                }
+            })
             setProducts(data)
         } catch (e) {
             if (e instanceof AxiosError) {
@@ -26,18 +31,20 @@ const Menu = ({}) => {
 
     }
     useEffect(() => {
-        getMenu()
-    }, [])
+        getMenu(filter)
+    }, [filter])
 
     return (
         <>
             <div style={{display: "flex", justifyContent: "space-between", marginBottom: "45px"}}>
                 <H1>Меню</H1>
-                <Search placeholder="Введите блюдо или состав"></Search>
+                <Search placeholder="Введите блюдо или состав" value={filter}
+                        onChange={(e) => setFilter(e.target.value)}></Search>
             </div>
-            {isLoading &&<> loading...</>}
+            {isLoading && <> loading...</>}
             {error && <>{error}</>}
-            {!isLoading &&<MenuList products={products}/>}
+            {!isLoading && products.length > 0 && <MenuList products={products}/>}
+            {!isLoading && products.length === 0 && <p>Ничего не найдено по запросу</p>}
 
         </>
     );

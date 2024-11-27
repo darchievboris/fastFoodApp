@@ -61,3 +61,14 @@
     flex: 1;
     padding: 40px  65px;
 }
+.cartCount{
+    background: var(--primery-color);
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    color: var(--main-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+}
