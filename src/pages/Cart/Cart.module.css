@@ -1,0 +1,22 @@
+.totalPrice{
+    max-width: 550px;
+    margin: 30px 0 70px;
+}
+.line{
+
+    display: flex;
+    justify-content: space-between;
+    margin: 16px 20px 13px 0px;
+}
+.hr{
+    border: 1px solid #F1F2F3 ;
+}
+.itemCount{
+    font-weight: 300;
+    color: #BEBEBE;
+}
+.button{
+    max-width: 520px;
+    display: flex;
+    justify-content: center;
+}

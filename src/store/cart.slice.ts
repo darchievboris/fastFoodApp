@@ -14,13 +14,15 @@ export interface CartState {
 const initialState: CartState = loadState<CartState>(CART_PERSISTENT_STATE) ?? {
     items:[]
 }
-console.log("%c 1 --> 17||cart.slice.ts\n initialState: ","color:#f0f;", initialState);
 
 
 export const cartSlice = createSlice({
     name: "cart",
     initialState,
     reducers: {
+        clean:(state)=>{
+            state.items = []
+        },
         remove: (state, action: PayloadAction<number>) => {
             state.items = state.items.filter(i => i.id !== action.payload)
         },

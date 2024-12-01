@@ -1,0 +1,20 @@
+.wrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 60px;
+}
+.img{
+
+    transform: rotate(-17.06deg);
+    width: 330.55px;
+    height: 330.55px;
+
+}
+.text{
+    font-size: 31px;
+    font-weight: 300;
+    line-height: 37.2px;
+    text-align: center;
+}
