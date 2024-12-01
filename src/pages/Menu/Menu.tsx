@@ -36,7 +36,7 @@ const Menu = ({}) => {
 
     return (
         <>
-            <div style={{display: "flex", justifyContent: "space-between", marginBottom: "45px"}}>
+            <div style={{display: "flex", justifyContent: "space-between"}}>
                 <H1>Меню</H1>
                 <Search placeholder="Введите блюдо или состав" value={filter}
                         onChange={(e) => setFilter(e.target.value)}></Search>

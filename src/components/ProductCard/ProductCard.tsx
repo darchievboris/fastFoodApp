@@ -10,7 +10,6 @@ function ProductCard(props: ProductCardProps) {
     const dispatch = useDispatch<AppDispatch>()
     function add(e:React.MouseEvent<HTMLButtonElement, MouseEvent>) {
         e.preventDefault()
-        console.log(props.id)
         dispatch(cartActions.add(props.id))
     }
 

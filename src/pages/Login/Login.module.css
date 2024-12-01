@@ -31,8 +31,3 @@
 .register a{
     color: var(--primery-color);
 }
-.error{
-    background: #FFC529;
-    width: 400px;
-    padding: 20px;
-}

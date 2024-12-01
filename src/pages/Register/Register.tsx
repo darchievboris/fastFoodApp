@@ -45,7 +45,7 @@ const Register = ({}) => {
         <>
             <div className={styles.login}>
                 <H1>Регистрация</H1>
-                {registerErrorMessage && <div className={styles.error}>{registerErrorMessage}</div>}
+                {registerErrorMessage && <div className="error">{registerErrorMessage}</div>}
                 <form className={styles.form} onSubmit={handleSubmit}>
                     <div className={styles.filed}>
                         <label htmlFor="email">Ваш email</label>

@@ -22,3 +22,8 @@ body{
 a{text-decoration: none;
     color: inherit;
 }
+.error{
+    background: #FFC529;
+    width: 400px;
+    padding: 20px;
+}
