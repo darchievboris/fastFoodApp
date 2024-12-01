@@ -1,5 +1,7 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
+import {loadState} from "./storege.ts";
 
+export const CART_PERSISTENT_STATE = 'cartData'
 export interface CartItem {
     id: number;
     count: number;
@@ -9,9 +11,11 @@ export interface CartState {
     items: CartItem[]
 }
 
-const initialState: CartState = {
-    items: []
+const initialState: CartState = loadState<CartState>(CART_PERSISTENT_STATE) ?? {
+    items:[]
 }
+console.log("%c 1 --> 17||cart.slice.ts\n initialState: ","color:#f0f;", initialState);
+
 
 export const cartSlice = createSlice({
     name: "cart",

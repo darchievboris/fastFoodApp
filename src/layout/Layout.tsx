@@ -12,6 +12,7 @@ const Layout = ({}) => {
     const dispatch = useDispatch<AppDispatch>()
     const profile = useSelector((s:RootState)=>s.user.profile)
     const items= useSelector((s:RootState)=>s.cart.items)
+    console.log("%c 1 --> 15||Layout.tsx\n items: ","color:#f0f;", items);
     useEffect(() => {
         dispatch(getProfile())
     }, [dispatch])
