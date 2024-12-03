@@ -47,11 +47,11 @@ const Login = ({}) => {
             <form className={styles.form} onSubmit={handleSubmit}>
                 <div className={styles.filed}>
                     <label htmlFor="email">Ваш email</label>
-                    <Input id="email" name="email" placeholder="Email"/>
+                    <Input id="email" name="email" placeholder="Email | login:a@gmail.com"/>
                 </div>
                 <div className={styles.filed}>
                     <label htmlFor="password">Ваш пароль</label>
-                    <Input id="password" type="password" name="password" placeholder="Пароль"/>
+                    <Input id="password" type="password" name="password" placeholder="Пароль | pass:123"/>
                 </div>
                 <Button appearance="big">ВХОД</Button>
             </form>

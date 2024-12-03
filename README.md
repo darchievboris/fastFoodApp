@@ -1,50 +1,65 @@
-# React + TypeScript + Vite
+# Fast Food
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Описание
 
-Currently, two official plugins are available:
+Fast Food — сайт по заказу еды. Этот проект я написал для того, чтобы закрепить свои знания по React, Redux, TS, React-router-dom.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Функционал
 
-## Expanding the ESLint configuration
+- Авторизация и регистрация пользователей в систему происходит через API сервер.
+- После этого, получение уникального JWT токена с сохранением в Redux и local Storage.
+- Добавлена middleware для проверки JWT токена и допуска к опеределенным частям сайта.
+- Каталог еды(ссылки на фото, название, цена) подгружаются с сервера.
+- Добвления товаров в корзину сохраняются в Redux storage и local Storage при закрытие браузера сохраняются данные о корзине.
+- В корзине можно увидеть итоговую сумму (цена товаров + доставка), из нее также можно увеличить/уменьшить или удалить из заказа товар.
+- При оформлении заказа, отправляется данные на сервер и корзина очищается.
+- Присутствует фильтрация еды с запросом на сервер.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Технологии
 
-- Configure the top-level `parserOptions` property like this:
+- React,
+- TypeScript,
+- Vite,
+- React Router,
+- Redux
+- Axios,
+- React CSS Modules,
+- Хуки,
+- работа с local storage,
+- контроль версий в Git.
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## Инструкция
+
+Чтобы запустить проект, нужно сделать несколько простых шагов.
+
+- Создайте папку и перейдите в неё:
+
+```
+cd <Имя-папки>
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+- С клонируйте этот репозиторий:
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
 ```
+https://github.com/darchievboris/fastFoodApp.git
+```
+
+- Установите все зависимости:
+
+```
+npm install
+```
+
+- Теперь можете запустить проект:
+
+```
+npm run dev 
+```
+
+## Системные требования
+
+Для запуска потребуется Node.js версии 16.13.0.
+
+## Ссылка на GitHub Pages
+
+https://darchievboris.github.io/fastFoodApp
